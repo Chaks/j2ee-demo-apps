@@ -3,6 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.apache.servicemix.features</groupId>
+    <artifactId>features</artifactId>
+    <version>4.3.0</version>
+  </parent>
+  
   <groupId>com.mycompany.demoapps</groupId>
   <artifactId>apache-camel-demo-jdbc</artifactId>
   <version>1.0-SNAPSHOT</version>
@@ -21,6 +27,10 @@
       <version>1.4.0</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
@@ -32,10 +42,10 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-Activator>com.mycompany.demoapps.apachecameldemojdbc.Activator</Bundle-Activator>
-            <Export-Package></Export-Package>
+            <Bundle-Activator>com.mycompany.demoapps.camel.osgi.Activator</Bundle-Activator>
+            <Export-Package>com.mycompany.demoapps.camel.processor</Export-Package>
             <DynamicImport-Package>*</DynamicImport-Package>
-            <Private-Package>com.mycompany.demoapps.apachecameldemojdbc.*</Private-Package>
+            <Private-Package>com.mycompany.demoapps.camel.osgi.*,com.mycompany.demoapps.camel.processor.*</Private-Package>
           </instructions>
         </configuration>
       </plugin>
