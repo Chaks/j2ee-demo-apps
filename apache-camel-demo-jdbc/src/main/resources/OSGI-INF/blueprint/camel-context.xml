@@ -4,7 +4,7 @@
   
   <camelContext xmlns="http://camel.apache.org/schema/blueprint">
     <route>
-      <from uri="timer://customerDataTrigger?delay=2000&amp;period=2000"/>
+      <from uri="timer://customerDataTrigger?delay=3000&amp;period=300000"/>
       <setBody>
         <constant>select * from APP.CUSTOMER</constant>
       </setBody>
@@ -13,7 +13,10 @@
       <split>
         <simple>${body}</simple>
         <log message="::: Row ::: ${body}"/>
-      </split>
+        <process ref="customerCSVProcessor"/>
+        <log message="::: Transformed Row ::: ${body}"/>
+        <to uri="file:/home/dchakr/camel/output?fileName=customer-data-${id}.csv&amp;fileExist=Append"/>        
+      </split>      
     </route>
   </camelContext>
   
@@ -23,5 +26,7 @@
     <property name="username" value="app" />
     <property name="password" value="app" />
   </bean>
+  
+  <bean id="customerCSVProcessor" class="com.mycompany.demoapps.camel.processor.CustomerCSVProcessor"/>
 </blueprint>
 
