@@ -3,7 +3,11 @@
   xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
   
   <camelContext xmlns="http://camel.apache.org/schema/blueprint">
-    <route>
+    <dataFormats>
+      <json id="json" library="Jackson"/>
+    </dataFormats>
+
+    <route id="demoRoute01">
       <from uri="timer://customerDataTrigger?delay=3000&amp;period=300000"/>
       <setBody>
         <constant>select * from APP.CUSTOMER</constant>
@@ -14,9 +18,16 @@
         <simple>${body}</simple>
         <log message="::: Row ::: ${body}"/>
         <process ref="customerCSVProcessor"/>
+        <!-- Message transformation can also be done using Bean! -->
+        <!--<bean ref="customerCSVBean"/>-->
         <log message="::: Transformed Row ::: ${body}"/>
         <to uri="file:/home/dchakr/camel/output?fileName=customer-data-${id}.csv&amp;fileExist=Append"/>        
       </split>      
+    </route>
+    <route id="demoRoute02">
+      <from uri="jetty://http://0.0.0.0:8080/demo"/>
+      <bean ref="customerHTTPService" method="invokeService"/>
+      <marshal ref="json"/>
     </route>
   </camelContext>
   
@@ -27,6 +38,8 @@
     <property name="password" value="app" />
   </bean>
   
-  <bean id="customerCSVProcessor" class="com.mycompany.demoapps.camel.processor.CustomerCSVProcessor"/>
+  <bean id="customerCSVProcessor" class="com.mycompany.demoapps.camel.transform.CustomerCSVProcessor"/>
+  <bean id="customerCSVBean" class="com.mycompany.demoapps.camel.transform.CustomerCSVBean"/>
+  <bean id="customerHTTPService" class="com.mycompany.demoapps.camel.service.CustomerHTTPService"/>  
 </blueprint>
 
