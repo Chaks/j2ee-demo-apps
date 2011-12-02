@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://cxf.camel.demos.mycompany.com/"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+version="1.0"
+targetNamespace="http://cxf.camel.demos.mycompany.com/">
+
+  <xs:element name="greet" type="tns:greet"/>
+  <xs:element name="greetResponse" type="tns:greetResponse"/>
+
+  <xs:complexType name="greet">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="greetResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
