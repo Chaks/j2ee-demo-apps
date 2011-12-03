@@ -1,0 +1,133 @@
+******************************************************************************************************************
+SOAP Message - UserToken, PasswordText
+******************************************************************************************************************
+<soapenv:Envelope xmlns:cxf="http://cxf.camel.demos.mycompany.com/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:UsernameToken wsu:Id="UsernameToken-2" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsse:Username>abcd</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">dcba</wsse:Password>
+        <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">hFB9/+g/zzptdCy2T1vSWQ==</wsse:Nonce>
+        <wsu:Created>2011-12-03T08:47:37.878Z</wsu:Created>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+  <soapenv:Body>
+    <cxf:greet>
+         <!--Optional:-->
+      <name>Chaks</name>
+    </cxf:greet>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+******************************************************************************************************************
+<soapenv:Envelope xmlns:cxf="http://cxf.camel.demos.mycompany.com/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:UsernameToken wsu:Id="UsernameToken-3" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsse:Username>abcd</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">dcba</wsse:Password>
+        <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">dpFVdo9rgn7V2QTo6aeOYQ==</wsse:Nonce>
+        <wsu:Created>2011-12-03T08:50:38.820Z</wsu:Created>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+  <soapenv:Body>
+    <cxf:greet>
+         <!--Optional:-->
+      <name>Chaks</name>
+    </cxf:greet>
+  </soapenv:Body>
+</soapenv:Envelope>
+******************************************************************************************************************
+SOAP Message - UserToken, PasswordDigest
+******************************************************************************************************************
+<soapenv:Envelope xmlns:cxf="http://cxf.camel.demos.mycompany.com/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:UsernameToken wsu:Id="UsernameToken-4" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsse:Username>abcd</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">eg9NBw/mghMeoCkZ4QT7gXW5A4c=</wsse:Password>
+        <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">DvoEjB2+QgXo80b+1v8G1w==</wsse:Nonce>
+        <wsu:Created>2011-12-03T09:34:00.165Z</wsu:Created>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+  <soapenv:Body>
+    <cxf:greet>
+         <!--Optional:-->
+      <name>Chaks</name>
+    </cxf:greet>
+  </soapenv:Body>
+</soapenv:Envelope>
+******************************************************************************************************************
+<soapenv:Envelope xmlns:cxf="http://cxf.camel.demos.mycompany.com/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:UsernameToken wsu:Id="UsernameToken-5" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsse:Username>abcd</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">k/f+4Ut0n8gLtMwEKM+cm1lvV8o=</wsse:Password>
+        <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">OQUL6ewZR4wMQY1ixTUW8Q==</wsse:Nonce>
+        <wsu:Created>2011-12-03T09:34:25.545Z</wsu:Created>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+  <soapenv:Body>
+    <cxf:greet>
+         <!--Optional:-->
+      <name>Chaks</name>
+    </cxf:greet>
+  </soapenv:Body>
+</soapenv:Envelope>
+******************************************************************************************************************
+SOAP Message - UserToken, Timestamp
+******************************************************************************************************************
+<soapenv:Envelope xmlns:cxf="http://cxf.camel.demos.mycompany.com/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsu:Timestamp wsu:Id="Timestamp-9" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsu:Created>2011-12-03T10:21:40.281Z</wsu:Created>
+        <wsu:Expires>2011-12-03T14:31:40.281Z</wsu:Expires>
+      </wsu:Timestamp>
+      <wsse:UsernameToken wsu:Id="UsernameToken-8" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsse:Username>abcd</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">853kWAaZORLxet3H6NonO2HV4ZQ=</wsse:Password>
+        <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">H9rWUWasHQ5sjZSVAMmeSw==</wsse:Nonce>
+        <wsu:Created>2011-12-03T10:21:40.218Z</wsu:Created>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+  <soapenv:Body>
+    <cxf:greet>
+         <!--Optional:-->
+      <name>Chaks</name>
+    </cxf:greet>
+  </soapenv:Body>
+</soapenv:Envelope>
+******************************************************************************************************************
+<soapenv:Envelope xmlns:cxf="http://cxf.camel.demos.mycompany.com/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsu:Timestamp wsu:Id="Timestamp-11" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsu:Created>2011-12-03T10:23:36.338Z</wsu:Created>
+        <wsu:Expires>2011-12-03T18:43:36.338Z</wsu:Expires>
+      </wsu:Timestamp>
+      <wsse:UsernameToken wsu:Id="UsernameToken-10" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsse:Username>abcd</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">YlnvnEgpAMpSQtQxdF25ftRxBO4=</wsse:Password>
+        <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">8ylnbLj+5TuGkqnEwnH+rg==</wsse:Nonce>
+        <wsu:Created>2011-12-03T10:23:36.337Z</wsu:Created>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+  <soapenv:Body>
+    <cxf:greet>
+         <!--Optional:-->
+      <name>Chaks</name>
+    </cxf:greet>
+  </soapenv:Body>
+</soapenv:Envelope>
+******************************************************************************************************************
+******************************************************************************************************************
+******************************************************************************************************************
+******************************************************************************************************************
