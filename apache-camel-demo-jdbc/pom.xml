@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
+  <!--<parent>
     <groupId>org.apache.servicemix.features</groupId>
     <artifactId>features</artifactId>
     <version>4.3.0</version>
-  </parent>
+  </parent>-->
   
   <groupId>com.mycompany.demoapps</groupId>
   <artifactId>apache-camel-demo-jdbc</artifactId>
@@ -32,6 +32,7 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
+      <version>2.9.0-RC1</version>
     </dependency>
   </dependencies>
 
