@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mycompany.demoapps.camel.transform;
+package com.mycompany.cameljdbcdemo.camel.transform;
 
 import java.util.StringTokenizer;
 import java.util.logging.Logger;
