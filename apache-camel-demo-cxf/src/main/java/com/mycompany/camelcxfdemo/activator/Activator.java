@@ -1,4 +1,4 @@
-package com.mycompany.demoapps.activator;
+package com.mycompany.camelcxfdemo.activator;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
