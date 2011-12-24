@@ -43,7 +43,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-Activator>com.mycompany.demoapps.activator.Activator</Bundle-Activator>
+            <Bundle-Activator>com.mycompany.camelcxfdemo.activator.Activator</Bundle-Activator>
           </instructions>
         </configuration>
       </plugin>
