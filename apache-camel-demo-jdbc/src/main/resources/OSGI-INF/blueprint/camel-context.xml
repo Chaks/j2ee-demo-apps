@@ -29,7 +29,14 @@
     <property name="password" value="app" />
   </bean>
   
-  <bean id="customerCSVProcessor" class="com.mycompany.demoapps.camel.transform.CustomerCSVProcessor"/>
-  <bean id="customerCSVBean" class="com.mycompany.demoapps.camel.transform.CustomerCSVBean"/>
+  <!-- Expose DataSource as JNDI reference -->
+  <service ref="dataSourceDerby" interface="javax.sql.DataSource">
+    <service-properties>
+      <entry key="osgi.jndi.service.name" value="derbyDataSource"/>
+    </service-properties>
+  </service>
+  
+  <bean id="customerCSVProcessor" class="com.mycompany.cameljdbcdemo.camel.transform.CustomerCSVProcessor"/>
+  <bean id="customerCSVBean" class="com.mycompany.cameljdbcdemo.camel.transform.CustomerCSVBean"/>
 </blueprint>
 
