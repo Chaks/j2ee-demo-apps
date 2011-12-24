@@ -1,4 +1,4 @@
-package com.mycompany.demoapps.camel.osgi;
+package com.mycompany.cameljdbcdemo.camel.osgi;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
