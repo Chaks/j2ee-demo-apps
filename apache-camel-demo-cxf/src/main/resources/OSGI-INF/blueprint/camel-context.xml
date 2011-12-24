@@ -51,6 +51,6 @@
   </camelContext>
 
   <bean id="greetBean" class="com.mycompany.camelcxfdemo.processor.GreetProcessor"/>
-  <bean id="pwClbck" class="com.mycompany.camelcxfdemo.callback.ClientPasswordCallback"/> 
-
+  <bean id="pwClbck" class="com.mycompany.camelcxfdemo.callback.ClientPasswordCallback"/>
+  
 </blueprint>
