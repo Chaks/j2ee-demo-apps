@@ -45,10 +45,10 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-Activator>com.mycompany.demoapps.camel.osgi.Activator</Bundle-Activator>
+            <Bundle-Activator>com.mycompany.cameljdbcdemo.camel.osgi.Activator</Bundle-Activator>
             <Export-Package></Export-Package>
             <DynamicImport-Package>*</DynamicImport-Package>
-            <Private-Package>com.mycompany.demoapps.camel.bean.*,com.mycompany.demoapps.camel.osgi.*,com.mycompany.demoapps.camel.service.*,com.mycompany.demoapps.camel.transform.*</Private-Package>
+            <Private-Package>com.mycompany.cameljdbcdemo.camel.osgi.*,com.mycompany.cameljdbcdemo.camel.transform.*,com.mycompany.cameljdbcdemo.svc.*,com.mycompany.cameljdbcdemo.svc.impl.*</Private-Package>
           </instructions>
         </configuration>
       </plugin>
