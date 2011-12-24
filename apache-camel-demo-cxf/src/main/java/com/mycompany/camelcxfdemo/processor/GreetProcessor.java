@@ -16,16 +16,23 @@
  */
 package com.mycompany.camelcxfdemo.processor;
 
+import java.util.logging.Logger;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
-
 
 /**
  *
  * @author Darimireddi Chakravarthi
  */
 public class GreetProcessor implements Processor {
+
+  private static final Logger logger = Logger.getLogger(GreetProcessor.class.getName());
+
   public void process(Exchange exchng) throws Exception {
+
+    logger.info("::: GreetProcessor :::");
+    logger.info("::: exchng ::: " + exchng);
+
     Object[] args = exchng.getIn().getBody(Object[].class);
     exchng.getOut().setBody("Hello " + (String) args[0] + "!");
   }
