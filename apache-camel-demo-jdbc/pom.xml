@@ -18,7 +18,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!--<camel.version>2.6.0</camel.version>-->
+    <camel.core.version>2.9.0-RC1</camel.core.version>
     <!--<geronimo-servlet.version>1.0</geronimo-servlet.version>-->
   </properties>
 
@@ -32,7 +32,17 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
-      <version>2.9.0-RC1</version>
+      <version>${camel.core.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-jasypt</artifactId>
+      <version>${camel.core.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-cometd</artifactId>
+      <version>${camel.core.version}</version>
     </dependency>
   </dependencies>
 
@@ -46,9 +56,7 @@
         <configuration>
           <instructions>
             <Bundle-Activator>com.mycompany.cameljdbcdemo.camel.osgi.Activator</Bundle-Activator>
-            <Export-Package></Export-Package>
             <DynamicImport-Package>*</DynamicImport-Package>
-            <Private-Package>com.mycompany.cameljdbcdemo.camel.osgi.*,com.mycompany.cameljdbcdemo.camel.transform.*,com.mycompany.cameljdbcdemo.svc.*,com.mycompany.cameljdbcdemo.svc.impl.*</Private-Package>
           </instructions>
         </configuration>
       </plugin>
