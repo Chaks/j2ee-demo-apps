@@ -5,34 +5,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
       
-  <camelContext xmlns="http://camel.apache.org/schema/blueprint">
-    <route id="customerDataRoute" trace="false">
-      <from uri="timer://customerDataTrigger?delay=3000&amp;period=300000"/>
-      <setBody>
-        <constant>select * from APP.CUSTOMER</constant>
-      </setBody>
-      <to uri="jdbc:dataSourceDerby"/>
-      <log message="::: ResultSet ::: ${body}"/>
-      <split>
-        <simple>${body}</simple>
-        <log message="::: Row ::: ${body}"/>
-        <!-- Message transformation using Camel Processor! -->
-        <process ref="customerCSVProcessor"/>
-        <!-- Message transformation can also be done using a POJO! -->
-        <!--<bean ref="customerCSVBean"/>-->
-        <log message="::: Transformed Row ::: ${body}"/>
-        <to uri="file:/home/dchakr/camel/output?fileName=customer-data-${id}.csv&amp;fileExist=Append"/>        
-      </split>      
-    </route>
-  </camelContext>
-  
-  <bean id="customerCSVProcessor" class="com.mycompany.cameljdbcdemo.camel.transform.CustomerCSVProcessor"/>
-  <bean id="customerCSVBean" class="com.mycompany.cameljdbcdemo.camel.transform.CustomerCSVBean"/>
-  
-  <ext:property-placeholder placeholder-prefix="$(" placeholder-suffix=")"/>  
-  <ext:property-placeholder placeholder-prefix="$[" placeholder-suffix="]">    
+  <ext:property-placeholder id="defaultPlaceholder" placeholder-prefix="$(" placeholder-suffix=")"/>
+  <ext:property-placeholder id="JdbcPlaceholder" placeholder-prefix="$[" placeholder-suffix="]">    
     <ext:location>file:/etc/jProperties/$(ENV).jdbc.properties</ext:location>
-  </ext:property-placeholder>  
+  </ext:property-placeholder>
   
   <enc:property-placeholder>
     <enc:encryptor class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
@@ -48,12 +24,40 @@
     </enc:encryptor>
   </enc:property-placeholder>
   
+  <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+    <route id="customerDataRoute" trace="false">
+      <!--<from uri="timer://customerDataTrigger?delay=3000&amp;period=300000"/>-->
+      <from uri="quartz://myGroup/customerDataTrigger?cron=0 0/1 * * * ?"/>
+      <setBody>
+        <constant>select * from APP.CUSTOMER</constant>
+      </setBody>
+      <to uri="jdbc:dataSourceDerby"/>
+      <log message="::: ResultSet ::: ${body}"/>
+      <split>
+        <simple>${body}</simple>
+        <log message="::: Row ::: ${body}"/>
+        <!-- Message transformation using Camel Processor! -->
+        <process ref="customerCSVProcessor"/>
+        <!-- Message transformation can also be done using a POJO! -->
+        <!--<bean ref="customerCSVBean"/>-->
+        <log message="::: Transformed Row ::: ${body}"/>
+        <to uri="file:/home/dchakr/camel/output?fileName=customer-data-${id}.csv&amp;fileExist=Append"/>        
+      </split>
+      <convertBodyTo type="java.lang.String"/>
+      <to uri="ftp://dchakr@localhost:21/camel/ftpOutbound?password={{ftp.password}}"/>
+    </route>
+  </camelContext>
+  
+  <bean id="customerCSVProcessor" class="com.mycompany.cameljdbcdemo.camel.transform.CustomerCSVProcessor"/>
+  <bean id="customerCSVBean" class="com.mycompany.cameljdbcdemo.camel.transform.CustomerCSVBean"/>
+  
   <bean id="dataSourceDerby" class="org.apache.commons.dbcp.BasicDataSource">
     <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
     <!--<property name="url" value="jdbc:derby://localhost:1527/sample" />-->
     <property name="url" value="$[jdbc.url]" />
     <property name="username" value="$[jdbc.user]" />
     <!--<property name="password" value="app" />-->
+    <!--<property name="password" value="ENC(R7fYB9xf1yCq/SN4MPRRpA==)" />-->
     <property name="password" value="$[jdbc.password]" />
   </bean>
   
