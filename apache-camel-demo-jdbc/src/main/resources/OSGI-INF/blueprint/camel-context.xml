@@ -44,7 +44,8 @@
         <to uri="file:/home/dchakr/camel/output?fileName=customer-data-${id}.csv&amp;fileExist=Append"/>        
       </split>
       <convertBodyTo type="java.lang.String"/>
-      <to uri="ftp://dchakr@localhost:21/camel/ftpOutbound?password={{ftp.password}}"/>
+      <!--<to uri="ftp://dchakr@localhost:21/camel/ftpOutbound?password={{ftp.password}}"/>-->
+      <to uri="activemq:queue:customerQueue"/>
     </route>
   </camelContext>
   
@@ -59,6 +60,14 @@
     <!--<property name="password" value="app" />-->
     <!--<property name="password" value="ENC(R7fYB9xf1yCq/SN4MPRRpA==)" />-->
     <property name="password" value="$[jdbc.password]" />
+  </bean>
+  
+  <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+    <property name="connectionFactory">
+      <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://ubuntu:61616"/>
+      </bean>
+    </property>
   </bean>
   
   <!-- Expose DataSource as JNDI reference -->
