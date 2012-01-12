@@ -34,16 +34,6 @@
       <artifactId>camel-core</artifactId>
       <version>${camel.core.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-jasypt</artifactId>
-      <version>${camel.core.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-cometd</artifactId>
-      <version>${camel.core.version}</version>
-    </dependency>
   </dependencies>
 
   <build>
