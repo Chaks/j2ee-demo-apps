@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomerList>
+  <CustomerInfo>
+    <CustomerId></CustomerId>
+    <DiscountCode></DiscountCode>
+    <Zip></Zip>
+    <Name></Name>
+    <AddressLine1></AddressLine1>
+    <AddressLine2></AddressLine2>
+    <City></City>
+    <State></State>
+    <Phone></Phone>
+    <Fax></Fax>
+    <Email></Email>    
+  </CustomerInfo>
+</CustomerList>
