@@ -29,17 +29,7 @@
     </dependency>
     <dependency>
       <groupId>org.milyn</groupId>
-      <artifactId>milyn-smooks-core</artifactId>
-      <version>1.5.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.milyn</groupId>
-      <artifactId>milyn-smooks-csv</artifactId>
-      <version>1.5.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.milyn</groupId>
-      <artifactId>milyn-smooks-templating</artifactId>
+      <artifactId>milyn-smooks-all</artifactId>
       <version>1.5.1</version>
     </dependency>
   </dependencies>
@@ -54,6 +44,7 @@
         <configuration>
           <instructions>
             <Bundle-Activator>com.mycompany.demoapps.activator.Activator</Bundle-Activator>
+            <DynamicImport-Package>*</DynamicImport-Package>
           </instructions>
         </configuration>
       </plugin>
