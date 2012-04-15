@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="jpaDemo" transaction-type="JTA">
+    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+    <jta-data-source>jdbc/world</jta-data-source>
+    <class>com.mycompany.demoapps.jpademo.entity.City</class>
+    <!--<properties>
+	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/world"/>	
+	<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource"/>
+	<property name="javax.persistence.jdbc.user" value="root"/>
+	<property name="javax.persistence.jdbc.password" value="root"/>
+    </properties>-->
+    <properties/>
+  </persistence-unit>
+</persistence>
