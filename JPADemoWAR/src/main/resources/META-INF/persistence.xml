@@ -4,6 +4,8 @@
     <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
     <jta-data-source>jdbc/world</jta-data-source>
     <class>com.mycompany.demoapps.jpademo.entity.City</class>
+    <class>com.mycompany.demoapps.jpademo.entity.Country</class>
+    <class>com.mycompany.demoapps.jpademo.entity.CountryLanguage</class>
     <!--<properties>
 	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/world"/>	
 	<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource"/>
