@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.UserTransaction;
 
+import org.springframework.util.StopWatch;
+
 import com.mycompany.demoapps.jpademo.entity.City;
 import com.mycompany.demoapps.jpademo.entity.controller.CityJpaController;
 
@@ -25,9 +27,9 @@ import com.mycompany.demoapps.jpademo.entity.controller.CityJpaController;
  * @author dchakr
  */
 public class JPATestServlet extends HttpServlet {
-
+  
   private static final Logger LOG = Logger.getLogger(JPATestServlet.class.getName());
-  @PersistenceContext 
+  @PersistenceContext  
   EntityManager em;
   @Resource
   UserTransaction utx;
@@ -45,14 +47,16 @@ public class JPATestServlet extends HttpServlet {
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     LOG.info("Inside JPATestServlet.");
-
+    
     LOG.info("::: EntityManager :::" + em.toString());
     LOG.info("::: UserTransaction :::" + utx.toString());
     LOG.info("::: EntityManager getClass() :::" + em.getClass());
-
+    
+    StopWatch stopWatch = new StopWatch("CityJpaController Stop Watch");
+    stopWatch.start("Task findCityEntities()...");
     CityJpaController cityJpaController = new CityJpaController(utx, em.getEntityManagerFactory());
     List<City> cityList = cityJpaController.findCityEntities();
-
+    
     for (City city : cityList) {
       LOG.info(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
       LOG.info("::: City getName() :::" + city.getName());
@@ -61,7 +65,10 @@ public class JPATestServlet extends HttpServlet {
       LOG.info("::: City getCountryCode() :::" + city.getPopulation());
       LOG.info(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
     }
-
+    
+    stopWatch.stop();
+    LOG.info(stopWatch.prettyPrint());
+    
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     try {
